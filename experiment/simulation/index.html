@@ -124,7 +124,7 @@
               <div id="inst" style="display:none">
 			  <ol>
                 
-					  <li><br/>
+					  <li>
 					  At first choose the object position on Sinebar to either left or right side from the given dropdown button.
 					  </li><br/>
 					 
@@ -210,14 +210,14 @@
 					  <li><a onclick = "MoveobjR()">Right</a></li>
 					</ul>
 				  </div>
-				  <label for="customRange3" class="form-label">Add Height (H)</label>
+				  <label for="customRange3" class="form-label">Add Height (H) (mm)</label>
 					<input type="range" class="form-range" min="0" max="70" step="0.5" value = "0" onchange = "Simulate();autoUpdateChart()"id="customRange">
 					<input type="number" id = "hvalue" value = "0" style="width:20%;text-align:center;" readonly=readonly >
 				</div>
 				
 			<div class="p-2 " >	
 			<button type="button" onclick="CreateTable()" class="btn btn-primary" >Add to Table</button>
-			<button type="button" onclick="calibrate()" class="btn btn-success" >calibrate</button>
+			<button type="button" onclick="calibrate()" class="btn btn-success" >Calibrate</button>
 			<!--<button type="button" onclick="removeH()" class="btn btn-primary" >Remove Height</button>-->
 			<button type="button" id="refresh" onclick="Refresh()" class="btn btn-danger" >Clear</button>
 			</div>	
