@@ -52,7 +52,7 @@
 	max-width:100%;
 	}
 	
-	<!--.chartMenu {
+	/* /* <!--.chartMenu {
         width: 100vw;
         height: 40px;
         background: #1A1A1A;
@@ -65,13 +65,13 @@
       .chartCard {
 	  position:absolute;
         width: 40%;
-        height: 40%;<!--calc(100vh - 40px);--
+        height: 40%;/ *<!--calc(100vh - 40px);--
 		
         background: transparent;<!--rgba(54, 162, 235, 0.2);--
         display:flex;
         align-items: center;
         justify-content: center;
-      }-->
+      }--> */
       .chartBox {
 		position: absolute;
     width: 24%;
@@ -123,19 +123,30 @@
             <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
               <div id="inst" style="display:none">
 			  <ol>
-                
-					  <li>
-					  At first choose the object position on Sinebar to either left or right side from the given dropdown button.
+			  
+					<li>
+					  At first select the 'One side taper' as the test object by clicking on 'Select test object' dropdown button. 
 					  </li><br/>
 					 
-					 <li>Add height(H) or slipgauge to make the hypotenuse side of the object parallel to the plane (brown plane).
-					 Add the heights through the given ranger slider slowly. When it seems to be parallel with brown plane (when H &thickapprox; 63.5),
+					 <li>Add height(H) or slip gauge to make the hypotenuse side of the object parallel to the plane (brown plane).
+					 Add the slip gauges of particular height(mm) from the given 'Add slip gauge height(H)(mm)' dropdown list. The height(H) can be increased by adding other slip gauges from the dropdown list.
+					 The total height(mm) after adding slip gauges will be shown in the input box below the dropdown list.
+					Slip gauges can be removed by clicking on 'Remove slip gauge' button.
+					 When it seems to be parallel with brown plane (when H &thickapprox; 63.5),
 					 click on 'Calibrate' button. The dial gauge will show 0 deflection exactly.</li></br>
 
 					 <li>Click on 'Table' at the bottom of the page to see the observation table and click on 'Add to Table' button to fill the observation table.</li><br/> 
 					 
-					 <li> Click on 'Clear' button to erase the observation data. Click on 'Table' button to hide the observation table.
-						Change the position of te object to other side of the Sinebar and measure the angle following the steps 2-4.</li><br/>
+					 <li> Click on 'Clear' button to erase the observation data. Click on 'Table' button to hide the observation table.</li><br/>
+					 
+					 <li>Now select the 'V block' as the test object by clicking on 'Select test object' dropdown button.</li><br/>					 
+					 
+					 <li>Select the object position on Sinebar to either left or right side from the given 'Choose object position on sinebar' dropdown button.
+					  </li><br/>
+					  
+					 <li> Measure the angle of corresponding side by following steps 2-4.</li><br/>
+					 
+					<li>Change the position of the object to other side of the Sinebar and measure the angle following the steps 2-4.</li><br/>
 					 
 					<br/><br/>
 					</ol>
@@ -203,25 +214,57 @@
 				
 				<div class="p-2 " >
 				 <div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Choose object position on sinebar
+					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select test object <span class="caret"></span></button>
+					<ul class="dropdown-menu">
+					  <li><a onclick = "changeImg1()">One side taper</a></li>
+					  <li><a onclick = "changeImg2()">V block</a></li>
+					</ul>
+				  </div></div>				
+				
+				
+				
+				<div class="p-2 " >
+				 <div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dbtn" data-bs-toggle="dropdown" aria-expanded="false">Choose object position on sinebar
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">
 					  <li><a onclick = "MoveobjL()">Left</a></li>
 					  <li><a onclick = "MoveobjR()">Right</a></li>
 					</ul>
-				  </div>
-				  <label for="customRange3" class="form-label">Add Height (H) (mm)</label>
+				  </div></div>
+				  <div class="p-2 " >
+				   <div class="dropdown">
+					<button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Add slip gauge height(H)(mm)
+					</button>
+					<ul class="dropdown-menu">
+					  <li><a onclick = "ch1();Simulate();autoUpdateChart()">0.5</a></li>
+					  <li><a onclick = "ch2();Simulate();autoUpdateChart()">1</a></li>
+					  <li><a onclick = "ch8();Simulate();autoUpdateChart()">2</a></li>
+					  <li><a onclick = "ch9();Simulate();autoUpdateChart()">3</a></li>
+					  <li><a onclick = "ch3();Simulate();autoUpdateChart()">5</a></li>
+					  <li><a onclick = "ch4();Simulate();autoUpdateChart()">10</a></li>
+					  <li><a onclick = "ch5();Simulate();autoUpdateChart()">20</a></li>
+					  <li><a onclick = "ch6();Simulate();autoUpdateChart()">30</a></li>
+					  <li><a onclick = "ch7();Simulate();autoUpdateChart()">50</a></li>
+					  
+					</ul>
+				  </div></div></div>
+				  
+				  <br/>
+				  <!--<label for="customRange3" class="form-label">Add Height (H)</label>
 					<input type="range" class="form-range" min="0" max="70" step="0.5" value = "0" onchange = "Simulate();autoUpdateChart()"id="customRange">
-					<input type="number" id = "hvalue" value = "0" style="width:20%;text-align:center;" readonly=readonly >
-				</div>
+					-->Total Height of Slip Gauges (mm):<input type="number" id = "hvalue" value = "0"  style="width:20%;text-align:center;" readonly=readonly >
+					
+					<input type="number" id = "hvseudo" value = "0" min="0" max="10"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
+				<br/><br/>
 				
-			<div class="p-2 " >	
+			
 			<button type="button" onclick="CreateTable()" class="btn btn-primary" >Add to Table</button>
-			<button type="button" onclick="calibrate()" class="btn btn-success" >Calibrate</button>
-			<!--<button type="button" onclick="removeH()" class="btn btn-primary" >Remove Height</button>-->
+			<button type="button" onclick="calibrate()" class="btn btn-success" >calibrate</button>
+			<button type="button" onclick="removeH()" class="btn btn-primary" >Remove slip gauge</button>
 			<button type="button" id="refresh" onclick="Refresh()" class="btn btn-danger" >Clear</button>
-			</div>	
-			</div>
+			
+			<input type="number" id = "chkobj" value = "2" min="1" max="2"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
 		</div>
 			<div class="col-md-1" ></div>		
 			<!---end of 1st col under 1st row--->	
@@ -294,10 +337,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
 	
     <script>
-	<!--------------------------GAUGE CHART WITH CANVAS AND CHART.JS-------------------------------------->
-	<!--------------------------DEVELOPER: PIYALI CHATTERJEE-------------------------------------->
-	<!--------------------------PROJECT SCIENTIST-TECHNICAL,IIT KGP-------------------------------------->
-    // setup 
+	 
 	
     const data = {
       labels: ['50', '50'],
@@ -421,38 +461,15 @@ nValue = math.add(50,dialtheta);
 myChart.data.datasets[0].needleValue = nValue;
 document.getElementById('dial').value = nValue;
 }
-else if(math.round(dialtheta)==30){
+else if(math.floor(dialtheta)==30){
+myChart.data.datasets[0].data[0] = 50;
+myChart.data.datasets[0].data[1] = 50;
  myChart.data.datasets[0].needleValue = 50;
  document.getElementById('dial').value = 0;
  
  stopUpdate();
  }
 
- 
- /*if(nValue < 30){///loading
- nValue--;
- myChart.data.datasets[0].needleValue = nValue;
- document.getElementById('dial').value = nValue = math.subtract(50,math.round(dialtheta));
- }
- 
- if(nValue > 30 ){
- nValue++;
- 
- myChart.data.datasets[0].data[0] = nValue;
- myChart.data.datasets[0].needleValue = nValue;
- document.getElementById('dial').value = math.add(50,math.round(dialtheta));
- 
- }
- 
- else if(math.round(nValue) == math.round(30)){
- myChart.data.datasets[0].needleValue = 50;
- document.getElementById('dial').value = 0;
- 
- stopUpdate();
- }*/
- 
- //myChart.data.datasets[0].data.push(50);///push array[0] value in chart 
- //chart.data.datasets[0].backgroundColor.push("green");///change a particular data background color
   
  myChart.update();///to show gauge pressure in indicated value
  
@@ -466,10 +483,6 @@ else if(math.round(dialtheta)==30){
  
  }
  
- //setTimeout(stopWheel, 5000);///to stop the wheel rotation after reaching indicated value pressure
-//setTimeout(piston_positionUp, 5000);///piston will pop up after reaching the indicated pressure value
- //setTimeout(stopUpdate, 5000);
- //}
  
  ///stop the Pressure Gauge whenever required
  function stopUpdate(){
@@ -479,68 +492,9 @@ else if(math.round(dialtheta)==30){
  //}
  
  }
-    // Instantly assign Chart.js version
-    //const chartVersion = document.getElementById('chartVersion');
-   // chartVersion.innerText = Chart.version;
-    </script>
+   
+</script>
 
-<!--------------------------------------------------------GAUGE CHART USING CHART JS GENERAL--------------------------------------->	
-	
- <!--<script>
- 
- let ctx = document.getElementById("gaugechart").getContext('2d');
- let chart = new Chart(ctx, {
- 
- ///the type of chart we want to create
- type:'doughnut',
- 
- data: {
- 
- labels: ["january","feb","jun"],
- 
- ///the data for our dataset
- datasets: [{
- 
-		label:"Pressure Gauge",
-		backgroundColor: ['red','green','aqua'],
-		borderColor:['red','green','aqua'],
-		data:[3,5,10],
-		
-		}] 
- 
- },
- 
- ///configuration options go here
- options:{
-	legend:{
-	
-	display:false
-	
-	},
-	
-	circumference: 1*Math.PI,
-	rotation: 1*Math.PI,
-	cutoutPercentage:90
- 
- }
- 
- });
- 
- function updateChart(){
- 
- //chart.data.datasets[0].data = [20,5,10];///pushing a new value to an array of data
- chart.data.datasets[0].data.push(50);///push array[0] value in chart
- chart.data.datasets[0].backgroundColor.push("green");///change a particular data background color
- 
- 
- chart.update();
- 
- }
- 
- chart.update();
- </script> --> 
+</body>
 
-</body><!--body tag end-->
-
- 
-</html><!--html tag end-->
+</html>
