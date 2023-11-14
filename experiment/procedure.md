@@ -14,7 +14,7 @@
 Add the slip gauges of particular height(mm) from the given 'Add slip gauge height(H)(mm)' dropdown list. The height(H) can be increased by adding other slip gauges from the dropdown list.
 The total height(mm) after adding slip gauges will be shown in the input box below the dropdown list.
 Slip gauges can be removed by clicking on 'Remove slip gauge' button.
-When it seems to be parallel with brown plane (when H &thickapprox; 63.5),
+When it seems to be parallel with brown plane,
 click on 'Calibrate' button. The dial gauge will show 0 deflection exactly.
 
 3. Click on 'Table' at the bottom of the page to see the observation table and click on 'Add to Table' button to fill the observation table. 
