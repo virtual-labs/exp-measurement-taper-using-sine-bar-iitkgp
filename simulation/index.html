@@ -1,0 +1,500 @@
+<!-- This HTML page and script files are developed by
+    Piyali Chattopadhyay
+    Project Scientist-Technical,
+    Virtual Labs IIT Kharagpur.-->
+
+<!DOCTYPE html>
+<html lang="en"><!--html tag start-->
+<head>
+    <title>Measurement of Taper using Sine Bar</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+
+   
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script  src="./js/sinebar.js">   </script>
+  
+
+  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>-->
+
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.js"></script>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js  "></script>
+ 
+ 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+<link rel="stylesheet" href="./css/sinebar.css">
+
+	
+
+
+  <style>
+	
+	
+	canvas {	
+	max-width:100%;
+	}
+	
+	/* /* <!--.chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }--
+      .chartCard {
+	  position:absolute;
+        width: 40%;
+        height: 40%;/ *<!--calc(100vh - 40px);--
+		
+        background: transparent;<!--rgba(54, 162, 235, 0.2);--
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }--> */
+      .chartBox {
+		position: absolute;
+    width: 24%;
+    height: 47%;
+    top: -69%;
+    left: -6%;
+	z-index:3;
+    padding: 1px;
+    border-radius: 50px;
+    border: solid 4px rgba(54, 162, 235, 1);
+    border-top-left-radius: 60%;
+    border-top-right-radius: 62%;
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 62%;
+    background: white;
+      }
+	  
+	#myChart{
+	position:absolute;
+	padding: 0px;
+	top:-5%;
+	}
+  </style>
+  
+  
+  
+</head>
+<body><!--body tag start-->
+    <div class="container p-3 my-3 text-primary text-center "><!--First Container under body tag start-->
+       
+        <hr>
+        <div class="row"><!--2nd row under 1st container start-->
+            
+            <div class="col-md-12"><!--2nd col under 2nd row start-->
+                <p class="h1"> <b>Measurement of Taper using Sine Bar </b> </p>
+            </div><!--2nd col under 2nd row end-->
+           
+        </div><!--2nd row under 1st container end-->
+        <hr>
+       
+    </div><!--First Container under body tag end-->
+    
+   
+	
+    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+      <div class="row"><!--First row under 3rd container start-->
+        <div class="col-md-1"></div><!--First col under 3rd container start& end-->
+        <div class="col-md-10"><!--2nd col under 3rd container start-->
+            <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
+              <div id="inst" style="display:none">
+			  <ol>
+			  
+					<li>
+					  At first select the 'One side taper' as the test object by clicking on 'Select test object' dropdown button. 
+					  </li><br/>
+					 
+					 <li>Add height(H) or slip gauge to make the hypotenuse side of the object parallel to the plane (brown plane).
+					 Add the slip gauges of particular height(mm) from the given 'Add slip gauge height(H)(mm)' dropdown list. The height(H) can be increased by adding other slip gauges from the dropdown list.
+					 The total height(mm) after adding slip gauges will be shown in the input box below the dropdown list.
+					Slip gauges can be removed by clicking on 'Remove slip gauge' button.
+					 When it seems to be parallel with brown plane,
+					 click on 'Calibrate' button. The dial gauge will show 0 deflection exactly.</li></br>
+
+					 <li>Click on 'Table' at the bottom of the page to see the observation table and click on 'Add to Table' button to fill the observation table.</li><br/> 
+					 
+					 <li> Click on 'Clear' button to erase the observation data. Click on 'Table' button to hide the observation table.</li><br/>
+					 
+					 <li>Now select the 'V block' as the test object by clicking on 'Select test object' dropdown button.</li><br/>					 
+					 
+					 <li>Select the object position on Sinebar to either left or right side from the given 'Choose object position on sinebar' dropdown button.
+					  </li><br/>
+					  
+					 <li> Measure the angle of corresponding side by following steps 2-4.</li><br/>
+					 
+					<li>Change the position of the object to other side of the Sinebar and measure the angle following the steps 2-4.</li><br/>
+					 
+					<br/><br/>
+					</ol>
+							   </div>
+            </p> 
+          </div><!--2nd col under 3rd container end-->
+		  
+        <div class="col-md-1"></div><!--3rd col under 3rd container start& end-->
+      </div><!--First row under 3rd container end-->
+    </div><!--3rd Container under body tag end-->
+	
+    <div class="container p-3 my-5 text-center border" id="canvas" ><!--Fourth container under body tag start-->
+	<div class="row my-5 gy-2">
+	
+	<div class="col-md-12">
+	<div   class="img-container">
+			
+			<img class="img-fluid" src="./images/bar2.png" style="visibility:hidden">
+			</div>
+	</div>
+	</div>
+	
+	
+	<div class="row my-5 gy-2">
+	
+	<div class="col-md-12">
+	
+	
+			<div   class="img-container">
+			
+			<img class="img-fluid" src="./images/base.png">
+			
+			<!--<div class="chartCard">-->
+			<div class="chartBox" id="cb">
+			<canvas id="myChart"></canvas>
+			</div>
+			<div id="dstand" ></div>
+			<input type="number" id="dial" value="" readonly=readonly><p id="pspan">Dial Gauge</p>
+			
+			
+			<img class="img-fluid" id = "bar" src="./images/bar2.png" >
+			<!--<img class="img-fluid" id = "holder" src="./images/holder.png">-->
+			<img class="img-fluid" id = "obj" src="./images/testobj2.png">
+			
+			<img class="img-fluid" id ="slipgauge" src="./images/slipgauge.png" >
+			<img class="img-fluid" id ="slipgauge2" src="./images/slipgauge.png" >
+			
+			</div><br/><br/>
+		
+	
+	
+	
+	</div>
+	
+	<!--<button class="btn btn-success" onclick="Dw_Tester()">Simulate</button>-->
+	</div>
+	
+		<div class="row my-5 gy-2"><!--- 1st row under fourth container start--->
+		
+			<div class="col-md-1" ></div>
+        
+			<div class="col-md-10" ><!--1st col under 1st row start -->
+			<br>
+				<div class="d-inline-flex ">
+				
+				<div class="p-2 " >
+				 <div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select test object <span class="caret"></span></button>
+					<ul class="dropdown-menu">
+					  <li><a onclick = "changeImg1()">One side taper</a></li>
+					  <li><a onclick = "changeImg2()">V block</a></li>
+					</ul>
+				  </div></div>				
+				
+				
+				
+				<div class="p-2 " >
+				 <div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dbtn" data-bs-toggle="dropdown" aria-expanded="false">Choose object position on sinebar
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+					  <li><a onclick = "MoveobjL()">Left</a></li>
+					  <li><a onclick = "MoveobjR()">Right</a></li>
+					</ul>
+				  </div></div>
+				  <div class="p-2 " >
+				   <div class="dropdown">
+					<button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Add slip gauge height(H)(mm)
+					</button>
+					<ul class="dropdown-menu">
+					  <li><a onclick = "ch1();Simulate();autoUpdateChart()">0.5</a></li>
+					  <li><a onclick = "ch2();Simulate();autoUpdateChart()">1</a></li>
+					  <li><a onclick = "ch8();Simulate();autoUpdateChart()">2</a></li>
+					  <li><a onclick = "ch9();Simulate();autoUpdateChart()">3</a></li>
+					  <li><a onclick = "ch3();Simulate();autoUpdateChart()">5</a></li>
+					  <li><a onclick = "ch4();Simulate();autoUpdateChart()">10</a></li>
+					  <li><a onclick = "ch5();Simulate();autoUpdateChart()">20</a></li>
+					  <li><a onclick = "ch6();Simulate();autoUpdateChart()">30</a></li>
+					  <li><a onclick = "ch7();Simulate();autoUpdateChart()">50</a></li>
+					  
+					</ul>
+				  </div></div></div>
+				  
+				  <br/>
+				  <!--<label for="customRange3" class="form-label">Add Height (H)</label>
+					<input type="range" class="form-range" min="0" max="70" step="0.5" value = "0" onchange = "Simulate();autoUpdateChart()"id="customRange">
+					-->Total Height of Slip Gauges (mm):<input type="number" id = "hvalue" value = "0"  style="width:20%;text-align:center;" readonly=readonly >
+					
+					<input type="number" id = "hvseudo" value = "0" min="0" max="10"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
+				<br/><br/>
+				
+			
+			<button type="button" onclick="CreateTable()" class="btn btn-primary" >Add to Table</button>
+			<button type="button" onclick="calibrate()" class="btn btn-success" >calibrate</button>
+			<button type="button" onclick="removeH()" class="btn btn-primary" >Remove slip gauge</button>
+			<button type="button" id="refresh" onclick="Refresh()" class="btn btn-danger" >Clear</button>
+			
+			<input type="number" id = "chkobj" value = "2" min="1" max="2"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
+		</div>
+			<div class="col-md-1" ></div>		
+			<!---end of 1st col under 1st row--->	
+		</div>	
+                
+	<div class="row"><!--- 2nd row under fourth container start--->
+	
+		
+		
+			<div class="col-md-12 "><!--2nd col under 2nd row start -->	
+			<input type="number" id="chkside" min="1" value="1" max="2" style="visibility:hidden">
+			
+			<div><a class="nav-link" data-bs-toggle="tab"  id="myTables" style="background-color:#128BD9" ><span class=" h3 text-dark"> Table </span></a>
+			
+			<table id="obsT" style="display:none;width:100%">			
+				
+				  <tr>
+					<th>Sl No.</th>
+					<th>Height of the Slip Gauges (mm)</th> 
+					<th>Taper Angle (&deg;)</th>
+				</tr>
+				  
+			</table>
+		
+			</div>	
+				</div>				
+		
+	</div><!--- 2nd row under fourth container end--->	
+
+
+	 <div class="row justify-content-center"><!-----------------------graph T vs. w----------------------------------------->
+		
+	 
+			<div class="col-md-12">
+				
+				<div align="center" id="myPlot" style="width:100%;max-width:700px;padding-left:10%"></div>
+				
+				
+				
+			</div>
+			
+			
+		
+	</div>	
+
+	
+	
+          <!-- Code End here-->
+        </div><!--Fourth container under body tag end-->
+          
+      <!--</div>
+    </div>-->
+
+    <div class="container p-3 my-5 text-primary text-center border"><!--Last and fifth container under body tag start-->
+      <div class="row">
+        <footer>
+          <div class="row ce">
+            <div class="col-sm-12">
+              <p class="h5"><i> Copyright ©2022 <a href="http://vlabs.iitkgp.ac.in/vlt/">Virtual Labs IIT Kharagpur</a> </i><br><br>
+              <a href="../../license/index.html" target="_blank"> Licensing Terms </a>
+            </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+  </div><!--Last and fifth container under body tag end-->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+	
+    <script>
+	 
+	
+    const data = {
+      labels: ['50', '50'],
+      datasets: [{
+        label: '',
+        data: [50, 50],
+        backgroundColor: ['#F80A35','#058711'],
+		needleValue:50,
+        borderColor: "white",
+        borderWidth: 2,
+		cutout: "90%",
+		circumference: 280,
+		rotation: 220,
+      }]
+    };
+	///Needle block
+	const gaugeNeedle = {
+	
+	id:'gaugeNeedle',
+	afterDatasetDraw(chart,args,options){
+	
+	const {ctx,config,chartArea:{top,bottom,left,right,width,height}} = chart;
+	
+	ctx.save();
+	//console.log(ctx);
+	//const hp = math.subtract(ctx.canvas.offsetTop,math.divide(2,100));
+	const needleValue = data.datasets[0].needleValue;
+	const dataTotal = data.datasets[0].data.reduce ((a,b)=> a+b,0);
+	//const angel = (2.73*Math.PI) + (1/dataTotal*1.5*needleValue*Math.PI);
+	const angel = (Math.PI) + (1/dataTotal*needleValue*Math.PI);
+	const cx = width/2;
+	const cy = chart._metasets[0].data[0].y;
+	const cz = cy/2;
+	//console.log(ctx);
+	
+	///Needle
+	//var a = 100*(50/100);
+	ctx.translate(cx,cy);
+	ctx.rotate(angel);
+	ctx.beginPath();
+	ctx.moveTo(0,-2);
+	ctx.lineTo(ctx.canvas.height - 100, 0);
+	ctx.lineTo(0,2);
+	ctx.fillStyle = "#444";
+	ctx.fill();
+	ctx.restore();
+	///needle dot
+	//ctx.translate(-cx,-cy);
+	ctx.beginPath();
+	ctx.arc(cx,cy,5,0,10);
+	ctx.fill();
+	ctx.restore();	
+	
+	ctx.font ='20px Helvetica';
+	ctx.fillStyle = '#0983C8';
+	//ctx.fillText(needleValue +"Kpa", cx, cz + 10 );
+	ctx.textAlign = 'center';
+	ctx.restore();
+	}	
+	}
+	
+    // config 
+    const config = {
+      type: 'doughnut',
+      data,
+      options: {
+	  
+	  plugins: {
+	  
+	  legend:{
+	
+	display:false
+	
+	},
+	
+	toolTip: {
+	
+	yAlign: 'top',
+	displayColors: true,
+	
+	} 
+	  
+	  }
+	  
+      },
+	  plugins:[gaugeNeedle]
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+///end of Pressure Gauge
+	
+///starting functions to indicate pressure value,where total pressure is 1000 the range is 0-1000 kpa.	
+var Interval,nValue,finalV = 100;
+
+	
+function updateChart(){
+
+	Simulate();
+ nValue = math.round(myChart.data.datasets[0].needleValue);
+ var diff = math.round(math.subtract(50,dialtheta));
+//var editedValue = math.add(needleValue,incr);
+ //for(nValue = 0;nValue <= 1000; nValue++){
+ myChart.data.datasets[0].data[0] = nValue;//[nValue,(600 - nValue)];///pushing a new value to an array of data
+ myChart.data.datasets[0].data[1] = (100 - nValue);
+ //console.log('nValue =' + nValue);
+
+/// placing random number
+if(math.round(dialtheta)<30){
+nValue--;
+nValue = math.subtract(50,dialtheta);
+myChart.data.datasets[0].needleValue = nValue;
+document.getElementById('dial').value = nValue;
+}
+if(math.round(dialtheta)>30){
+nValue++;
+nValue = math.add(50,dialtheta);
+myChart.data.datasets[0].needleValue = nValue;
+document.getElementById('dial').value = nValue;
+}
+else if(math.floor(dialtheta)==30){
+myChart.data.datasets[0].data[0] = 50;
+myChart.data.datasets[0].data[1] = 50;
+ myChart.data.datasets[0].needleValue = 50;
+ document.getElementById('dial').value = 0;
+ 
+ stopUpdate();
+ }
+
+  
+ myChart.update();///to show gauge pressure in indicated value
+ 
+ }
+ 
+ ///calling function updateChart() for continously running the Pressure Gauge.
+ function autoUpdateChart(){
+ 
+ clearInterval(Interval);
+ Interval = setInterval(updateChart, 100);
+ 
+ }
+ 
+ 
+ ///stop the Pressure Gauge whenever required
+ function stopUpdate(){
+ 
+ //if(nValue == 1000){
+ clearInterval(Interval);
+ //}
+ 
+ }
+   
+</script>
+
+<script src="../assets/js/iframeResize.js"></script></body>
+
+</html>

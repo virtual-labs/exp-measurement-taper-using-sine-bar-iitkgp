@@ -1,0 +1,60 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary principle the sine bar relies on to precisely measure angles?",
+      "answers": {
+        "a": "Cosine Principle",
+        "b": "Sine Principle",
+        "c": "Tangent Principle",
+        "d": "Arc Length Principle"
+      },
+      "correctAnswer": "b",
+      "difficulty": "Beginner"
+    },
+    {
+      "question": "Which of the following components are typically found in a sine bar?",
+      "answers": {
+        "a": "Vernier Scale and Spirit Level",
+        "b": "Protractor and Vernier Caliper",
+        "c": "Cylindrical, flat, and parallel surfaces",
+        "d": "Compass and Ruler"
+      },
+      "correctAnswer": "c",
+      "difficulty": "Beginner"
+    },
+    {
+      "question": "In the context of measuring taper using a sine bar, what is the role of gauge blocks?",
+      "answers": {
+        "a": "Measure the length of the taper.",
+        "b": "Set the height of the sine bar for parallelism.",
+        "c": "Measure the angle of the taper directly.",
+        "d": "Calibrate the sine bar."
+      },
+      "correctAnswer": "b",
+      "difficulty": "Beginner"
+    },
+    {
+      "question": "Which instrument is commonly used to measure minor deviations from flatness while measuring taper using a sine bar?Which instrument is commonly used to measure minor deviations from flatness while measuring taper using a sine bar?",
+      "answers": {
+        "a": "Vernier Caliper",
+        "b": "Micrometer",
+        "c": "Dial Indicator",
+        "d": "Spirit Level"
+      },
+      "correctAnswer": "c",
+      "difficulty": "Beginner"
+    },
+    {
+      "question": "Which industries commonly use a Sine bar for taper measurement for quality control?",
+      "answers": {
+        "a": "Fashion and Apparel",
+        "b": "Food and Beverage",
+        "c": "Manufacturing and Engineering",
+        "d": "Entertainment and Media"
+      },
+      "correctAnswer": "c",
+      "difficulty": "Beginner"
+    }
+  ]
+}
