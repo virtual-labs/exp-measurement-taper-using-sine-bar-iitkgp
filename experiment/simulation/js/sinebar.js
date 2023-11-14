@@ -47,9 +47,9 @@ document.getElementById('dbtn').disabled = false;
 
 function MoveobjR(){
 	document.getElementById('obj').classList.remove("moveLeftobj");
-		   document.getElementById('holder').classList.remove("moveLeftholder");
+		  // document.getElementById('holder').classList.remove("moveLeftholder");
 	 document.getElementById('obj').classList.add("moveRightobj");
-	 document.getElementById('holder').classList.add("moveRightholder");
+	 //document.getElementById('holder').classList.add("moveRightholder");
 	$('#chkside').val(2); 
 	
 	document.getElementById('cb').style.left = 82 +"%";
@@ -65,9 +65,9 @@ function MoveobjR(){
 
 function MoveobjL(){
 	document.getElementById('obj').classList.remove("moveRightobj");
-		   document.getElementById('holder').classList.remove("moveRightholder");
+		   //document.getElementById('holder').classList.remove("moveRightholder");
 	 document.getElementById('obj').classList.add("moveLeftobj");
-	 document.getElementById('holder').classList.add("moveLeftholder");
+	 //document.getElementById('holder').classList.add("moveLeftholder");
 	 $('#chkside').val(1);	
 	 
 	 document.getElementById('cb').style.left = -6 +"%";
