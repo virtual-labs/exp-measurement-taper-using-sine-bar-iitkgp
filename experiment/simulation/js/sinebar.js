@@ -40,44 +40,55 @@ document.getElementById('obj').src = "images/testobj2.png";
 document.getElementById('obj').style.width = 35 +"%";
 document.getElementById('obj').style.left = 15.2 +"%";
 document.getElementById('obj').style.top = -18 +"%";
-document.getElementById('dbtn').disabled = false;	
+document.getElementById('dbtn').disabled = false;
+document.getElementById('ost').style.visibility="hidden";
 }
 
 ///object movement
 
 function MoveobjR(){
 	document.getElementById('obj').classList.remove("moveLeftobj");
-		  // document.getElementById('holder').classList.remove("moveLeftholder");
+	document.getElementById('holder').classList.remove("moveLeftholder");
+	//document.getElementById('dholder').classList.remove("moveLeftdholder");
 	 document.getElementById('obj').classList.add("moveRightobj");
-	 //document.getElementById('holder').classList.add("moveRightholder");
+	 document.getElementById('holder').classList.add("moveRightholder");
+	 //document.getElementById('dholder').classList.add("moveRightdholder");
 	$('#chkside').val(2); 
 	
 	document.getElementById('cb').style.left = 82 +"%";
 	document.getElementById('dstand').style.left = 93 +"%";
 	document.getElementById('dial').style.left = 90 +"%";
+	document.getElementById('dholder').style.left = 79 +"%";
+	document.getElementById('dholder').style.top = -36.5 +"%";
 	document.getElementById('pspan').style.left = 85 +"%";
 	
 	document.getElementById('cb').style.top = -75 +"%";
 	document.getElementById('dstand').style.top = -29 +"%";	
 	document.getElementById('pspan').style.top = -84 +"%";
+	document.getElementById('dholder').style.zIndex= -1;
 	
 	 }
 
 function MoveobjL(){
 	document.getElementById('obj').classList.remove("moveRightobj");
-		   //document.getElementById('holder').classList.remove("moveRightholder");
+	document.getElementById('holder').classList.remove("moveRightholder");
+	//document.getElementById('dholder').classList.remove("moveRightdholder");
 	 document.getElementById('obj').classList.add("moveLeftobj");
-	 //document.getElementById('holder').classList.add("moveLeftholder");
+	 document.getElementById('holder').classList.add("moveLeftholder");
+	 // document.getElementById('dholder').classList.add("moveLeftdholder");
 	 $('#chkside').val(1);	
 	 
 	 document.getElementById('cb').style.left = -6 +"%";
 	document.getElementById('dstand').style.left = 5 +"%";
 	document.getElementById('dial').style.left = 1 +"%";
+	document.getElementById('dholder').style.left = -8.8 +"%";
+	document.getElementById('dholder').style.top = -30.5 +"%";
 	document.getElementById('pspan').style.left = -1 +"%";
 	
 	document.getElementById('cb').style.top = -69 +"%";
 	document.getElementById('dstand').style.top = -23 +"%";
 	document.getElementById('pspan').style.top = -80 +"%";
+	document.getElementById('dholder').style.zIndex= 4;
 }
 
 ///dial movement
@@ -88,10 +99,12 @@ function calibrate(){
 		if(document.getElementById('chkside').value == 1){
 	 document.getElementById('cb').classList.add("movedial");
 	 document.getElementById('dstand').classList.add("movestand");
+	 document.getElementById('dholder').classList.add("moveholder");
 	 
 	 setTimeout(function(){
 	document.getElementById('cb').classList.remove("movedial");
 	 document.getElementById('dstand').classList.remove("movestand");
+	 document.getElementById('dholder').classList.remove("moveholder");
 	 },2000);
 	 
 	 }
@@ -99,16 +112,18 @@ function calibrate(){
 	 if(document.getElementById('chkside').value == 2){
 	 document.getElementById('cb').classList.add("movedialL");
 	 document.getElementById('dstand').classList.add("movestandL");
+	  document.getElementById('dholder').classList.add("moveholderL");
 	 
 	 setTimeout(function(){
 	document.getElementById('cb').classList.remove("movedialL");
 	 document.getElementById('dstand').classList.remove("movestandL");
+	 document.getElementById('dholder').classList.remove("moveholderL");
 	 },2000);
 	 
 	 }	 
 	 
 }
-var h1=0,h2=0,h3=0,h4=0,h5=0,h6=0,h7=0,h8=0,h9=0,THeight;
+var h1=0,h2=0,h3=0,h4=0,h5=0,h6=0,h7=0,h8=0,h9=0,THeight,Tsim,h1d=0,h2d=0,h3d=0,h4d=0,h5d=0,h6d=0,h7d=0,h8d=0,h9d=0;
 var c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0,c8=0,c9=0;
 
 function ch1(){
@@ -144,50 +159,60 @@ $('#hvseudo').val(8);
 function ch9(){
 $('#hvseudo').val(9);	
 }
-var dialtheta;
+var dialtheta;///dial gauge calibration
 function Simulate(){
 	
 	var a = $('#hvseudo').val();
 	//c1++;
 	if(a == 1){
 		
-		h1 = 0.5;
+		h1 = 0.5;//mm
+		h1d = 1;//anim
 		
 	}
 	if(a == 2){
 		//c2++
-		h2 = 1;
+		h2 = 1;//mm
+		h2d = 2;//anim
 	}
 	if(a == 3){
 		//c3+=5;
-		h3 = 5;
+		h3 = 5;//mm
+		h3d = 6;//anim
 	}
 	if(a == 4){
 		//c4+=10;
-		h4 = 10;
+		h4 = 10;//mm
+		h4d = 20;//anim
 	}
 	if(a == 5){
 		//c5+=20;
-		h5 = 20;
+		h5 = 20;//mm
+		h5d = 30;//anim
 	}
 	if(a == 6){
 		//c6+=30;
-		h6 = 30;
+		h6 = 30;//mm
+		h6d = 40;//anim
 	}
 	if(a == 7){
 		//c7+=50;
-		h7 = 50;
+		h7 = 50;//mm
+		h7d = 60;//anim
 	}
 	if(a == 8){
 		//c8+=2;
-		h8 = 2;
+		h8 = 2;//mm
+		h8d = 3;//anim
 	}
 	if(a == 9){
 		//c9+=3;
-		h9 = 3;
+		h9 = 3;//mm
+		h9d = 4;//anim
 	}
 	
 	THeight = math.add(h1,h2,h3,h4,h5,h6,h7,h8,h9);
+	//Tsim = math.add(h1d,h2d,h3d,h4d,h5d,h6d,h7d,h8d,h9d);
 	
 	document.getElementById('hvalue').value = THeight;
 	var L = 127;///in mm
@@ -195,18 +220,35 @@ function Simulate(){
 	var theta = math.asin(math.divide(H,L));
 	
 	if(document.getElementById('chkside').value == 1){
-	document.getElementById('slipgauge').style.height = THeight+ '%';
-	var thetad = -math.divide(math.multiply(theta,180),math.pi);
+	document.getElementById('slipgauge').style.height = (THeight*2.5)+ 'px';
+	var thetad = -math.divide(math.multiply(theta,180),math.pi);///thetad is the calculated actual degree value needed for calculation 
+	
+	if(H<=71.5){
+	var thetaAnim = thetad/1.4; ///to display the animation it is needed.//1.8
+	}
+	 if(H>71.5){
+	var thetaAnim = thetad/2.3; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2)+ 'px';
+	} 
+	
 	}
 	else if(document.getElementById('chkside').value == 2){
-	document.getElementById('slipgauge2').style.height = THeight + '%';
+	document.getElementById('slipgauge2').style.height = (THeight*2.5) + 'px';
 	var thetad = math.divide(math.multiply(theta,180),math.pi);
+	
+	if(H<=71.5){
+	var thetaAnim = thetad/1.4; ///to display the animation it is needed.
+	}
+	 if(H>71.5){
+	var thetaAnim = thetad/2.3; ///to display the animation it is needed.
+	document.getElementById('slipgauge2').style.height = (THeight*2)+ 'px';
+	} 
 	}	
 	 
 	 dialtheta = math.abs(thetad);
 	 
-	document.getElementById("bar").style.transform = "rotate("+thetad+ "deg)";
-	document.getElementById("obj").style.transform = "rotate("+thetad+ "deg)";
+	document.getElementById("bar").style.transform = "rotate("+thetaAnim+ "deg)";
+	document.getElementById("obj").style.transform = "rotate("+thetaAnim+ "deg)";
 	
 	if(document.getElementById('chkobj').value == 2){///v block
 	if(document.getElementById('chkside').value == 1){
@@ -273,7 +315,7 @@ function CreateTable() {
 
     arr[0] = tabrowindex+1 ;
     arr[1] = $('#hvalue').val();
-    arr[2] = dialtheta;
+    arr[2] = dialtheta.toFixed(2);
 	
    
 	
