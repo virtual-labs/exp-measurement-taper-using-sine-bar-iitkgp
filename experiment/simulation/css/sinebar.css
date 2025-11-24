@@ -17,7 +17,7 @@
 
 #slipgauge {
     position: absolute;
-    left: 77.2%;
+    left: 77%;
     bottom: 51%;
     width: 10%;
     height: 0%;
@@ -60,6 +60,16 @@
 
 }
 
+#dholder {
+    position: absolute;
+    left: -8.8%;
+    top: -30.5%;
+    width: 17%;
+    height: 69%;
+    /* opacity: 0.6; */
+    z-index: 4;
+}
+
 #chart_div{
 	
 position:absolute;
@@ -99,7 +109,7 @@ position: absolute;
     height: 9%;
     background-color: #0983C8;
     font-size: 1vw;
-	z-index:3;
+	z-index:-3;
 }
 
 @keyframes moveRobj {
@@ -113,6 +123,7 @@ position: absolute;
   
 }
 
+
 @keyframes moveLobj {
   from { left: 45.2%; }
   to { left: 15.2%; };
@@ -123,6 +134,7 @@ position: absolute;
   to { left: 23.2%; };
   
 }
+
 
 
 .moveRightobj{
@@ -142,6 +154,7 @@ position: absolute;
 	/*transform-origin: 51.9% 45.3%;*/
 }
 
+/*for left side calibration*/
 @keyframes movedial {
   from { left: -6%; }
   to { left: 18%; };
@@ -150,6 +163,12 @@ position: absolute;
 @keyframes movestand {
  from { left: 5%; }
   to { left: 28%; };
+  
+}
+
+@keyframes moveholder {
+ from { left: -8.8%; }
+  to { left: 14.2%; };
   
 }
 
@@ -163,6 +182,12 @@ position: absolute;
 	/*transform-origin: 51.9% 45.3%;*/
 }
 
+.moveholder{
+	animation:moveholder 1s linear forwards;
+	/*transform-origin: 51.9% 45.3%;*/
+}
+
+/*for right side calibration*/
 @keyframes movedialL {
   from { left: 82%; }
   to { left: 53%; };
@@ -173,6 +198,11 @@ position: absolute;
   to { left: 64%; };
   
 }
+@keyframes moveholderL {
+ from { left: 79%; }
+  to { left: 50%; };
+  
+}
 
 
 .movedialL{
@@ -181,6 +211,10 @@ position: absolute;
 }
 .movestandL{
 	animation:movestandL 1s linear forwards;
+	/*transform-origin: 51.9% 45.3%;*/
+}
+.moveholderL{
+	animation:moveholderL 1s linear forwards;
 	/*transform-origin: 51.9% 45.3%;*/
 }
 
