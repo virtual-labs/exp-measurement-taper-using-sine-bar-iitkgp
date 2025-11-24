@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Why do we use Sine bars to find angles?",
+      "question": "1. Why do we use Sine bars to find angles?",
       "answers": {
         "a": "To measure length accurately",
         "b": "To measure temperature variations",
@@ -13,7 +13,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Which type of workpieces are commonly measured using a sine bar?",
+      "question": "2. Which type of workpieces are commonly measured using a sine bar?",
       "answers": {
         "a": "Round objects",
         "b": "Flat objects",
@@ -24,7 +24,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "What are the sources of errors in sine bars?",
+      "question": "3. What are the sources of errors in sine bars?",
       "answers": {
         "a": "Human fatigue and weather conditions",
         "b": "Imperfections in the surface plate, wear in the sine bar, deviations in slip gauges, levelling issues",
@@ -35,7 +35,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "If you have a sine bar with a length of 250 mm. and you placed a 20 mm thick slip gauge under one end to measure a specific angle. What angle does the sine bar make with the reference surface?",
+      "question": "4. If you have a sine bar with a length of 250 mm. and you placed a 20 mm thick slip gauge under one end to measure a specific angle. What angle does the sine bar make with the reference surface?",
       "answers": {
         "a": "7.2 degrees",
         "b": "8 degrees",
@@ -46,7 +46,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "If you are using a sine bar with a length of 300 mm. and, you have to use a slip gauge of 25 mm thickness at one end to set an angle of 15 degrees. What will be the height of the slip gauge needed at the other end to achieve this angle?",
+      "question": "5. If you are using a sine bar with a length of 300 mm. and, you have to use a slip gauge of 25 mm thickness at one end to set an angle of 15 degrees. What will be the height of the slip gauge needed at the other end to achieve this angle?",
       "answers": {
         "a": "35 mm",
         "b": "45 mm",
