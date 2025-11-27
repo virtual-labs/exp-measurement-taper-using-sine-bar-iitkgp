@@ -59,7 +59,7 @@ function MoveobjR(){
 	document.getElementById('dstand').style.left = 93 +"%";
 	document.getElementById('dial').style.left = 90 +"%";
 	document.getElementById('dholder').style.left = 79 +"%";
-	document.getElementById('dholder').style.top = -36.5 +"%";
+	document.getElementById('dholder').style.top = -34 +"%";
 	document.getElementById('pspan').style.left = 85 +"%";
 	
 	document.getElementById('cb').style.top = -75 +"%";
@@ -70,6 +70,7 @@ function MoveobjR(){
 	 }
 
 function MoveobjL(){
+	if (document.getElementById('chkside').value!=1){
 	document.getElementById('obj').classList.remove("moveRightobj");
 	document.getElementById('holder').classList.remove("moveRightholder");
 	//document.getElementById('dholder').classList.remove("moveRightdholder");
@@ -85,10 +86,11 @@ function MoveobjL(){
 	document.getElementById('dholder').style.top = -30.5 +"%";
 	document.getElementById('pspan').style.left = -1 +"%";
 	
-	document.getElementById('cb').style.top = -69 +"%";
-	document.getElementById('dstand').style.top = -23 +"%";
-	document.getElementById('pspan').style.top = -80 +"%";
+	document.getElementById('cb').style.top = -75 +"%";
+	document.getElementById('dstand').style.top = -29 +"%";
+	document.getElementById('pspan').style.top = -84 +"%";
 	document.getElementById('dholder').style.zIndex= 4;
+	}
 }
 
 ///dial movement
@@ -220,29 +222,65 @@ function Simulate(){
 	var theta = math.asin(math.divide(H,L));
 	
 	if(document.getElementById('chkside').value == 1){
-	document.getElementById('slipgauge').style.height = (THeight*2.5)+ 'px';
-	var thetad = -math.divide(math.multiply(theta,180),math.pi);///thetad is the calculated actual degree value needed for calculation 
 	
-	if(H<=71.5){
+	var thetad = -math.divide(math.multiply(theta,180),math.pi);///thetad is the calculated actual degree value needed for calculation 
+	if(H<=100){
+	var thetaAnim = thetad/1.96;
+	document.getElementById('slipgauge').style.height = (THeight*1.9)+ 'px';
+	}
+	if(H>100 && H<=110){
+	var thetaAnim = thetad/1.96; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2)+ 'px';
+	}
+	if(H>110 && H<=120){
+	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2.2)+ 'px';
+	}
+	if(H>120){
+	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2.3)+ 'px';
+	}
+	/* if(H<=71.5){
 	var thetaAnim = thetad/1.4; ///to display the animation it is needed.//1.8
 	}
-	 if(H>71.5){
-	var thetaAnim = thetad/2.3; ///to display the animation it is needed.//2.3
-	document.getElementById('slipgauge').style.height = (THeight*2)+ 'px';
-	} 
+	 if(H>71.5 && H!=80 && H!=100){
+	var thetaAnim = thetad/1.94; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2.2)+ 'px';
+	}
 	
+	if(H==80){
+	var thetaAnim = thetad/1.8; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*1.98)+ 'px';
+	}
+	
+	if(H==100){
+	var thetaAnim = thetad/1.94; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge').style.height = (THeight*2.1)+ 'px';
+	} */
+	
+	document.getElementById('slipgauge2').style.height = 0 + 'px';
 	}
 	else if(document.getElementById('chkside').value == 2){
-	document.getElementById('slipgauge2').style.height = (THeight*2.5) + 'px';
+	//document.getElementById('slipgauge2').style.height = (THeight*2.5) + 'px';
 	var thetad = math.divide(math.multiply(theta,180),math.pi);
 	
-	if(H<=71.5){
-	var thetaAnim = thetad/1.4; ///to display the animation it is needed.
+	if(H<=100){
+	var thetaAnim = thetad/1.96;
+	document.getElementById('slipgauge2').style.height = (THeight*1.9)+ 'px';
 	}
-	 if(H>71.5){
-	var thetaAnim = thetad/2.3; ///to display the animation it is needed.
+	if(H>100 && H<=110){
+	var thetaAnim = thetad/1.96; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge2').style.height = (THeight*2)+ 'px';
-	} 
+	}
+	if(H>110 && H<=120){
+	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge2').style.height = (THeight*2.2)+ 'px';
+	}
+	if(H>120){
+	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
+	document.getElementById('slipgauge2').style.height = (THeight*2.3)+ 'px';
+	}
+	document.getElementById('slipgauge').style.height = 0 + 'px';
 	}	
 	 
 	 dialtheta = math.abs(thetad);
@@ -281,6 +319,8 @@ function removeH(){
 	h4=0;
 	h5=0;h6=0;h7=0;h8=0;h9=0;
 	//c1=0;c2=0;c3=0;c4=0;c5=0;c6=0;c7=0;c8=0;c9=0;
+	document.getElementById('refresh').disabled=false;
+	document.getElementById('chkbtn').value = 1;
 	if(document.getElementById('chkside').value == 1){
 	document.getElementById('slipgauge').style. height = 0 +"%";
 	}
@@ -293,8 +333,8 @@ function removeH(){
 	document.getElementById("bar").style.transform = "rotate("+0+ "deg)";
 	document.getElementById("obj").style.transform = "rotate("+0+ "deg)";
 	 nValue = '';
-	$('#dial')[0].value = nValue;
-	
+	$('#dial')[0].value = ' ';
+	document.getElementById('ads').disabled=true;
 	
 	
 }
@@ -354,6 +394,7 @@ function Refresh(){
 	}
 	
 	tabrowindex=0;
-	removeH();
-	
+	//removeH();
+	document.getElementById('chkbtn').value = 0;
+	document.getElementById('ads').disabled=false;
  }

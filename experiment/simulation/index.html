@@ -202,10 +202,10 @@
 				
 				<div class="p-2 " >
 				 <div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select test object <span class="caret"></span></button>
+					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="sto">Select test object <span class="caret"></span></button>
 					<ul class="dropdown-menu">
-					  <li id="ost"><a onclick = "changeImg1()" >One side taper</a></li>
-					  <li id="vb"><a onclick = "changeImg2()" >V block</a></li>
+					  <li id="ost"><a onclick = "changeImg1();document.getElementById('ads').disabled=false" >One side taper</a></li>
+					  <li id="vb"><a onclick = "changeImg2();document.getElementById('ads').disabled=false" >V block</a></li>
 					</ul>
 				  </div></div>				
 				
@@ -216,13 +216,13 @@
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dbtn" data-bs-toggle="dropdown" aria-expanded="false" disabled=disabled>Choose object position on sinebar
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">
-					  <li><a onclick = "MoveobjL()">Left</a></li>
-					  <li><a onclick = "MoveobjR()">Right</a></li>
+					  <li id ="Lside"><a onclick = "MoveobjL()">Left</a></li>
+					  <li id="Rside"><a onclick = "MoveobjR()">Right</a></li>
 					</ul>
 				  </div></div>
 				  <div class="p-2 " >
 				   <div class="dropdown">
-					<button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Add slip gauge height (h) (mm)
+					<button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled=disabled id="ads">Add slip gauge height (h) (mm)
 					</button>
 					<ul class="dropdown-menu">
 					  <li><a onclick = "ch1();Simulate();autoUpdateChart()">0.5</a></li>
@@ -250,10 +250,11 @@
 			<button type="button" onclick="CreateTable()" class="btn btn-primary" >Add to Table</button>
 			<button type="button" onclick="calibrate()" class="btn btn-success" >calibrate</button>
 			<button type="button" onclick="removeH()" class="btn btn-primary" >Remove slip gauge</button>
-			<button type="button" id="refresh" onclick="Refresh()" class="btn btn-danger" >Clear</button>
+			<button type="button" id="refresh" onclick="Refresh()" class="btn btn-danger" disabled=disabled >Clear</button>
 			<button type="button"  onclick="location.reload()" class="btn btn-primary" >Restart Experiment</button>
 			
 			<input type="number" id = "chkobj" value = "2" min="1" max="2"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
+			<input type="number" id = "chkbtn" value = "0" min="0" max="1"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
 		</div>
 			<div class="col-md-1" ></div>		
 			<!---end of 1st col under 1st row--->	
@@ -424,10 +425,11 @@
 ///starting functions to indicate pressure value,where total pressure is 1000 the range is 0-1000 kpa.	
 var Interval,nValue,finalV = 100;
 
-	
+	var dialtheta2;
 function updateChart(){
 
 	Simulate();
+	
  nValue = math.round(myChart.data.datasets[0].needleValue);
  var diff = math.round(math.subtract(50,dialtheta));
 //var editedValue = math.add(needleValue,incr);
@@ -436,18 +438,26 @@ function updateChart(){
  myChart.data.datasets[0].data[1] = (100 - nValue);
  //console.log('nValue =' + nValue);
 
+var mfactor = 0.02;
 /// placing random number
-if(math.round(dialtheta)<30){
-nValue--;
-nValue = math.subtract(50,dialtheta);
-myChart.data.datasets[0].needleValue = nValue;
-document.getElementById('dial').value = nValue;
-}
 if(math.round(dialtheta)>30){
-nValue++;
-nValue = math.add(50,dialtheta);
+nValue--;
+nValue = math.subtract(50,math.divide(dialtheta,2));
 myChart.data.datasets[0].needleValue = nValue;
-document.getElementById('dial').value = nValue;
+document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor);
+}
+if(math.round(dialtheta)<30){
+nValue++;
+nValue = math.add(50,math.divide(dialtheta,2));
+myChart.data.datasets[0].needleValue = nValue;
+
+if(document.getElementById('chkbtn').value==0){
+document.getElementById('dial').value = math.multiply(nValue.toFixed(2),mfactor);
+}
+if(document.getElementById('chkbtn').value==1){
+document.getElementById('dial').value = '';
+}
+
 }
 else if(math.floor(dialtheta)==30){
 myChart.data.datasets[0].data[0] = 50;
