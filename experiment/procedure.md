@@ -27,7 +27,7 @@ To follow the instructions on the simulation page click on the blue Instructions
 
 6.	The complete contact between the slip gauge was done by wringing. Wringing is done by hand by sliding and twisting motions.  One gauge is placed perpendicular to the other using standard gauging pressure, and then a rotary motion is applied until the blocks are aligned.  In this way, air is expelled from between the gauge faces, causing the blocks to adhere to each other. 
 
-7.	The total height (in mm) resulting from the addition of the slip gauges will be displayed in the box located beneath the dropdown options. To remove slip gauges, select the 'Remove slip gauge' option.
+7.	The total height (in mm) resulting from the addition of the slip gauges will be displayed in the box located beneath the dropdown options. To remove slip gauges, select the 'Remove slip gauge' button.
 
 8.	The slip gauges must be added until the taper or hypotenuse side is aligned parallel with the surface plate. When it is aligned parallel to the surface plate, proceed by clicking the 'Calibrate' button. 
 
@@ -44,3 +44,5 @@ To follow the instructions on the simulation page click on the blue Instructions
 14.	The required taper angle of the relevant side of the V-block can be ascertained by adhering to the procedures outlined in steps 5-11.
 
 15. Click on 'Restart Experiment' button to restart the experiment.
+
+16. <b>Note:</b> 'Clear' button must be clicked after clicking on 'Remove slip gauge' button.

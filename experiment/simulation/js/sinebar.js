@@ -129,37 +129,64 @@ var h1=0,h2=0,h3=0,h4=0,h5=0,h6=0,h7=0,h8=0,h9=0,THeight,Tsim,h1d=0,h2d=0,h3d=0,
 var c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0,c8=0,c9=0;
 
 function ch1(){
-$('#hvseudo').val(1);	
+$('#hvseudo').val(1);
+document.getElementById('li1').style.color= "gray";	
+document.getElementById('li1').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;
 }
 function ch2(){
-$('#hvseudo').val(2);	
+$('#hvseudo').val(2);
+document.getElementById('li2').style.color= "gray";	
+document.getElementById('li2').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 
 function ch3(){
-$('#hvseudo').val(3);	
+$('#hvseudo').val(3);
+document.getElementById('li3').style.color= "gray";	
+document.getElementById('li3').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 
 function ch4(){
-$('#hvseudo').val(4);	
+$('#hvseudo').val(4);
+document.getElementById('li4').style.color= "gray";	
+document.getElementById('li4').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 
 function ch5(){
-$('#hvseudo').val(5);	
+$('#hvseudo').val(5);
+document.getElementById('li5').style.color= "gray";	
+document.getElementById('li5').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 
 function ch6(){
-$('#hvseudo').val(6);	
+$('#hvseudo').val(6);
+document.getElementById('li6').style.color= "gray";	
+document.getElementById('li6').style.cursor = "no-drop";	
+document.getElementById('chkbtn').value = 2;
 }
 
 function ch7(){
-$('#hvseudo').val(7);	
+$('#hvseudo').val(7);
+document.getElementById('li7').style.color= "gray";	
+document.getElementById('li7').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 
 function ch8(){
-$('#hvseudo').val(8);	
+$('#hvseudo').val(8);
+document.getElementById('li8').style.color= "gray";	
+document.getElementById('li8').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 function ch9(){
-$('#hvseudo').val(9);	
+$('#hvseudo').val(9);
+document.getElementById('li9').style.color= "gray";	
+document.getElementById('li9').style.cursor = "no-drop";
+document.getElementById('chkbtn').value = 2;	
 }
 var dialtheta;///dial gauge calibration
 function Simulate(){
@@ -334,9 +361,7 @@ function removeH(){
 	document.getElementById("obj").style.transform = "rotate("+0+ "deg)";
 	 nValue = '';
 	$('#dial')[0].value = ' ';
-	document.getElementById('ads').disabled=true;
-	
-	
+	document.getElementById('ads').disabled=true;	
 }
 
  
@@ -397,4 +422,31 @@ function Refresh(){
 	//removeH();
 	document.getElementById('chkbtn').value = 0;
 	document.getElementById('ads').disabled=false;
+	
+	document.getElementById('li1').style.color = "black";
+	document.getElementById('li1').style.cursor = "auto";
+	
+	document.getElementById('li2').style.color = "black";
+	document.getElementById('li2').style.cursor = "auto";
+	
+	document.getElementById('li3').style.color = "black";
+	document.getElementById('li3').style.cursor = "auto";
+	
+	document.getElementById('li4').style.color = "black";
+	document.getElementById('li4').style.cursor = "auto";
+	
+	document.getElementById('li5').style.color = "black";
+	document.getElementById('li5').style.cursor = "auto";
+	
+	document.getElementById('li6').style.color = "black";
+	document.getElementById('li6').style.cursor = "auto";
+	
+	document.getElementById('li7').style.color = "black";
+	document.getElementById('li7').style.cursor = "auto";
+	
+	document.getElementById('li8').style.color = "black";
+	document.getElementById('li8').style.cursor = "auto";
+	
+	document.getElementById('li9').style.color = "black";
+	document.getElementById('li9').style.cursor = "auto";
  }

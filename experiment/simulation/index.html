@@ -74,6 +74,8 @@
 	padding: 0px;
 	top:-5%;
 	}
+	
+	
   </style>
   
   
@@ -117,7 +119,7 @@
 					 
 					 <li>The complete contact between the slip gauge was done by wringing. Wringing is done by hand by sliding and twisting motions.  One gauge is placed perpendicular to the other using standard gauging pressure, and then a rotary motion is applied until the blocks are aligned.  In this way, air is expelled from between the gauge faces, causing the blocks to adhere to each other.</li><br/>
 					  
-					 <li>The total height (in mm) resulting from the addition of the slip gauges will be displayed in the box located beneath the dropdown options. To remove slip gauges, select the 'Remove slip gauge' option.</li><br/>
+					 <li>The total height (in mm) resulting from the addition of the slip gauges will be displayed in the box located beneath the dropdown options. To remove slip gauges, select the 'Remove slip gauge' button.</li><br/>
 					 
 					<li>The slip gauges must be added until the taper or hypotenuse side is aligned parallel with the surface plate. When it is aligned parallel to the surface plate, proceed by clicking the 'Calibrate' button.</li><br/>
 
@@ -133,7 +135,9 @@
 
 					<li>The required taper angle of the relevant side of the V-block can be ascertained by adhering to the procedures outlined in steps 5-11.</li><br/>
 
-					<li>Click on 'Restart Experiment' button to restart the experiment.</li>
+					<li>Click on 'Restart Experiment' button to restart the experiment.</li><br/>
+					
+					<li><b>Note:</b> 'Clear' button must be clicked after clicking on 'Remove slip gauge' button.</li>
 
 					<br/><br/>
 					</ol>
@@ -225,15 +229,15 @@
 					<button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled=disabled id="ads">Add slip gauge height (h) (mm)
 					</button>
 					<ul class="dropdown-menu">
-					  <li><a onclick = "ch1();Simulate();autoUpdateChart()">0.5</a></li>
-					  <li><a onclick = "ch2();Simulate();autoUpdateChart()">1</a></li>
-					  <li><a onclick = "ch8();Simulate();autoUpdateChart()">2</a></li>
-					  <li><a onclick = "ch9();Simulate();autoUpdateChart()">3</a></li>
-					  <li><a onclick = "ch3();Simulate();autoUpdateChart()">5</a></li>
-					  <li><a onclick = "ch4();Simulate();autoUpdateChart()">10</a></li>
-					  <li><a onclick = "ch5();Simulate();autoUpdateChart()">20</a></li>
-					  <li><a onclick = "ch6();Simulate();autoUpdateChart()">30</a></li>
-					  <li><a onclick = "ch7();Simulate();autoUpdateChart()">50</a></li>
+					  <li id="li1"><a onclick = "ch1();Simulate();autoUpdateChart()">0.5</a></li>
+					  <li id="li2"><a onclick = "ch2();Simulate();autoUpdateChart()">1</a></li>
+					  <li id="li8"><a onclick = "ch8();Simulate();autoUpdateChart()">2</a></li>
+					  <li id="li9"><a onclick = "ch9();Simulate();autoUpdateChart()">3</a></li>
+					  <li id="li3"><a onclick = "ch3();Simulate();autoUpdateChart()">5</a></li>
+					  <li id="li4"><a onclick = "ch4();Simulate();autoUpdateChart()">10</a></li>
+					  <li id="li5"><a onclick = "ch5();Simulate();autoUpdateChart()">20</a></li>
+					  <li id="li6"><a onclick = "ch6();Simulate();autoUpdateChart()">30</a></li>
+					  <li id="li7"><a onclick = "ch7();Simulate();autoUpdateChart()">50</a></li>
 					  
 					</ul>
 				  </div></div></div>
@@ -254,7 +258,7 @@
 			<button type="button"  onclick="location.reload()" class="btn btn-primary" >Restart Experiment</button>
 			
 			<input type="number" id = "chkobj" value = "2" min="1" max="2"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
-			<input type="number" id = "chkbtn" value = "0" min="0" max="1"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
+			<input type="number" id = "chkbtn" value = "2" min="0" max="2"  style="width:20%;text-align:center;visibility:hidden" readonly=readonly >
 		</div>
 			<div class="col-md-1" ></div>		
 			<!---end of 1st col under 1st row--->	
@@ -440,23 +444,41 @@ function updateChart(){
 
 var mfactor = 0.02;
 /// placing random number
-if(math.round(dialtheta)>30){
+if(dialtheta>30){
 nValue--;
 nValue = math.subtract(50,math.divide(dialtheta,2));
 myChart.data.datasets[0].needleValue = nValue;
-document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor);
+//document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+
+if(document.getElementById('chkbtn').value==2){
+document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
 }
-if(math.round(dialtheta)<30){
-nValue++;
-nValue = math.add(50,math.divide(dialtheta,2));
-myChart.data.datasets[0].needleValue = nValue;
 
 if(document.getElementById('chkbtn').value==0){
-document.getElementById('dial').value = math.multiply(nValue.toFixed(2),mfactor);
+document.getElementById('dial').value = 0.0;//math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+//document.getElementById('chkbtn').value=2;
 }
 if(document.getElementById('chkbtn').value==1){
 document.getElementById('dial').value = '';
 }
+}
+if(dialtheta<30){
+nValue++;
+nValue = math.add(50,math.divide(dialtheta,2));
+myChart.data.datasets[0].needleValue = nValue;
+
+if(document.getElementById('chkbtn').value==2){
+document.getElementById('dial').value = math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+}
+
+if(document.getElementById('chkbtn').value==0){
+document.getElementById('dial').value = 0.0;//math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+//document.getElementById('chkbtn').value=2;
+}
+if(document.getElementById('chkbtn').value==1){
+document.getElementById('dial').value = '';
+}
+
 
 }
 else if(math.floor(dialtheta)==30){
