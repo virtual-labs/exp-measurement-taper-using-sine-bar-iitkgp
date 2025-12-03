@@ -254,36 +254,51 @@ function Simulate(){
 	if(H<=100){
 	var thetaAnim = thetad/1.96;
 	document.getElementById('slipgauge').style.height = (THeight*1.9)+ 'px';
+	if(document.getElementById('chkobj').value == 1){
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.top = -8+"%";
+	}
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.left = 15.2+"%";
+	}
 	}
 	if(H>100 && H<=110){
 	var thetaAnim = thetad/1.96; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge').style.height = (THeight*2)+ 'px';
+	if(document.getElementById('chkobj').value == 1){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.top = 0+"%";
+	}
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.left = 20.2+"%";
+	}
 	}
 	if(H>110 && H<=120){
 	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge').style.height = (THeight*2.2)+ 'px';
+	if(document.getElementById('chkobj').value == 1){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.top = 0+"%";
+	}
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.left = 20.2+"%";
+	}
 	}
 	if(H>120){
 	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge').style.height = (THeight*2.3)+ 'px';
+	if(document.getElementById('chkobj').value == 1){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.top = 0+"%";
 	}
-	/* if(H<=71.5){
-	var thetaAnim = thetad/1.4; ///to display the animation it is needed.//1.8
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 14.2+"%";
+	document.getElementById('obj').style.left = 20.2+"%";
 	}
-	 if(H>71.5 && H!=80 && H!=100){
-	var thetaAnim = thetad/1.94; ///to display the animation it is needed.//2.3
-	document.getElementById('slipgauge').style.height = (THeight*2.2)+ 'px';
 	}
-	
-	if(H==80){
-	var thetaAnim = thetad/1.8; ///to display the animation it is needed.//2.3
-	document.getElementById('slipgauge').style.height = (THeight*1.98)+ 'px';
-	}
-	
-	if(H==100){
-	var thetaAnim = thetad/1.94; ///to display the animation it is needed.//2.3
-	document.getElementById('slipgauge').style.height = (THeight*2.1)+ 'px';
-	} */
 	
 	document.getElementById('slipgauge2').style.height = 0 + 'px';
 	}
@@ -294,20 +309,29 @@ function Simulate(){
 	if(H<=100){
 	var thetaAnim = thetad/1.96;
 	document.getElementById('slipgauge2').style.height = (THeight*1.9)+ 'px';
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.left = -18+"%";
 	}
 	if(H>100 && H<=110){
 	var thetaAnim = thetad/1.96; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge2').style.height = (THeight*2)+ 'px';
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.top = -18+"%";
 	}
 	if(H>110 && H<=120){
 	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge2').style.height = (THeight*2.2)+ 'px';
+	document.getElementById('bar').style.left = 5.2+"%";
+	document.getElementById('obj').style.top = -15+"%";
 	}
 	if(H>120){
 	var thetaAnim = thetad/1.95; ///to display the animation it is needed.//2.3
 	document.getElementById('slipgauge2').style.height = (THeight*2.3)+ 'px';
+	document.getElementById('bar').style.left = 5.2+"%";
+	document.getElementById('obj').style.top = -15+"%";
 	}
 	document.getElementById('slipgauge').style.height = 0 + 'px';
+	
 	}	
 	 
 	 dialtheta = math.abs(thetad);
@@ -350,9 +374,21 @@ function removeH(){
 	document.getElementById('chkbtn').value = 1;
 	if(document.getElementById('chkside').value == 1){
 	document.getElementById('slipgauge').style. height = 0 +"%";
+	if(document.getElementById('chkobj').value == 1){
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.top = -8+"%";	
+	}
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.top = -18+"%";	
+	}
 	}
 	if(document.getElementById('chkside').value == 2){
 	document.getElementById('slipgauge2').style. height = 0 +"%";
+	if(document.getElementById('chkobj').value == 2){
+	document.getElementById('bar').style.left = 9.2+"%";
+	document.getElementById('obj').style.top = -18+"%";	
+	}
 	}
 	THeight = 0;
 	document.getElementById('hvalue').value =0;
