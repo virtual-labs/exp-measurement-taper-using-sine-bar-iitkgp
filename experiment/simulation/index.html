@@ -445,13 +445,22 @@ function updateChart(){
 var mfactor = 0.02;
 /// placing random number
 if(dialtheta>30){
-nValue--;
-nValue = math.subtract(50,math.divide(dialtheta,2));
-myChart.data.datasets[0].needleValue = nValue;
+
 //document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
 
 if(document.getElementById('chkbtn').value==2){
+if(document.getElementById('chkside').value==1){
+nValue--;
+nValue = math.subtract(50,math.divide(dialtheta,2));
+myChart.data.datasets[0].needleValue = nValue;
 document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+}
+if(document.getElementById('chkside').value==2){
+nValue++;
+nValue = math.add(50,math.divide(dialtheta,2));
+myChart.data.datasets[0].needleValue = nValue;
+document.getElementById('dial').value = math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+}
 }
 
 if(document.getElementById('chkbtn').value==0){
@@ -463,12 +472,21 @@ document.getElementById('dial').value = '';
 }
 }
 if(dialtheta<30){
+
+
+if(document.getElementById('chkbtn').value==2){
+if(document.getElementById('chkside').value==1){
 nValue++;
 nValue = math.add(50,math.divide(dialtheta,2));
 myChart.data.datasets[0].needleValue = nValue;
-
-if(document.getElementById('chkbtn').value==2){
 document.getElementById('dial').value = math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+}
+if(document.getElementById('chkside').value==2){
+nValue--;
+nValue = math.subtract(50,math.divide(dialtheta,2));
+myChart.data.datasets[0].needleValue = nValue;
+document.getElementById('dial').value = -math.multiply(nValue.toFixed(2),mfactor).toFixed(2);
+}
 }
 
 if(document.getElementById('chkbtn').value==0){
@@ -477,6 +495,7 @@ document.getElementById('dial').value = 0.0;//math.multiply(nValue.toFixed(2),mf
 }
 if(document.getElementById('chkbtn').value==1){
 document.getElementById('dial').value = '';
+myChart.data.datasets[0].needleValue = 50;
 }
 
 
