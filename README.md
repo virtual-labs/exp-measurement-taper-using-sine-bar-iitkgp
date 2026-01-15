@@ -6,7 +6,7 @@
 
 <b>Discipline | <b> Mechanical Engineering 
 :--|:--|
-<b> Lab | <b> ** Metrology and Measurement Lab**
+<b> Lab | <b> ** Metrology and Measurement Laboratory**
 <b> Experiment|     <b> **Measurement of Taper using Sine Bar and Experiment 3**
 
 
