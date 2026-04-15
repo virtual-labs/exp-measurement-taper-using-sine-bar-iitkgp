@@ -15,6 +15,12 @@
     width: 35%;	
 }
 
+#cb{
+position: absolute;
+    left: -6%;
+    top: -75%;	
+}
+
 #slipgauge {
     position: absolute;
     left: 77%;
@@ -40,6 +46,24 @@
     height: 63%;
     z-index: 5;
 }
+#b2 {
+    position: absolute;
+    left: -14.8%;
+    top: 46%;
+    width: 29%;
+     height: 8%;
+    /*z-index: 2; */
+
+}
+#b3 {
+    position: absolute;
+    left: 77.2%;
+    top: 46%;
+    width: 29%;
+     height: 8%;
+    /*z-index: 2; */
+
+}
 #bar {
     position: absolute;
     left: 9.2%;
@@ -63,11 +87,11 @@
 #dholder {
     position: absolute;
     left: -8.8%;
-    top: -30.5%;
+    top: -34%;
     width: 17%;
-    height: 69%;
+    height: 82%;
     /* opacity: 0.6; */
-    z-index: 4;
+    z-index: -1;
 }
 
 #chart_div{
@@ -94,7 +118,7 @@ position: absolute;
 	
 position: absolute;
     left: -1%;
-    top: -80%;
+    top: -84%;
     width: auto;
     color: red;
     font-size: 1vw;
@@ -104,7 +128,7 @@ position: absolute;
 	
 position: absolute;
     left: 5%;
-    top: -23%;
+    top: -29%;
     width: 2%;
     height: 9%;
     background-color: #0983C8;
