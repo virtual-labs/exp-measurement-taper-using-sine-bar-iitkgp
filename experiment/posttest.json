@@ -17,7 +17,7 @@
       "answers": {
         "a": "Round objects",
         "b": "Flat objects",
-        "c": "Irregularly shaped objects",
+        "c": "Objects with inclined or tapered surfaces",
         "d": "Hollow objects"
       },
       "correctAnswer": "c",

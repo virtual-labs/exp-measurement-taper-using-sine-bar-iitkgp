@@ -59,7 +59,8 @@ function MoveobjR(){
 	document.getElementById('dstand').style.left = 93 +"%";
 	document.getElementById('dial').style.left = 90 +"%";
 	document.getElementById('dholder').style.left = 79 +"%";
-	document.getElementById('dholder').style.top = -34 +"%";
+	document.getElementById('dholder').style.top = -36 +"%";
+	document.getElementById('dholder').style.height = 84 +"%";
 	document.getElementById('pspan').style.left = 85 +"%";
 	
 	document.getElementById('cb').style.top = -75 +"%";
@@ -83,13 +84,14 @@ function MoveobjL(){
 	document.getElementById('dstand').style.left = 5 +"%";
 	document.getElementById('dial').style.left = 1 +"%";
 	document.getElementById('dholder').style.left = -8.8 +"%";
-	document.getElementById('dholder').style.top = -30.5 +"%";
+	document.getElementById('dholder').style.top = -34 +"%";
+	document.getElementById('dholder').style.height = 82 +"%";
 	document.getElementById('pspan').style.left = -1 +"%";
 	
 	document.getElementById('cb').style.top = -75 +"%";
 	document.getElementById('dstand').style.top = -29 +"%";
 	document.getElementById('pspan').style.top = -84 +"%";
-	document.getElementById('dholder').style.zIndex= 4;
+	document.getElementById('dholder').style.zIndex= -1;
 	}
 }
 
