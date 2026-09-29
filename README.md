@@ -1,24 +1,27 @@
 ## Introduction
 
+<div align="center">
+<img src="experiment/images/iitkgp.png" width="10%">
+</div>
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | <b> Mechanical Engineering 
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Lab | <b> ** Metrology and Measurement Laboratory**
+<b> Experiment|     <b> **Measurement of Taper using Sine Bar and Experiment 3**
+
 
 ### About the Experiment 
+**System description**
 
-Fill a brief description of this experiment here
+A sine bar is a tool used to measure angles in metalworking. It consists of a hardened, precision 
+ground body with two precision ground cylinders fixed at the ends. The distance between the 
+centers of the cylinders is precisely controlled, and the top of the bar is parallel to a line through the 
+centers of the two rollers as shown in Fig. 1
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
-:--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<div align="center">
+<img class="img-fluid"  src="experiment/images/bar.png" alt=""><br>           
+</div>
 
-### Contributors List
+The dimension between the two rollers is chosen to be a whole number (for ease of later 
+calculations) and forms the hypotenuse of a triangle when in use.
 
-SrNo | Name | Faculty or Student | Department| Institute | Email id
-:--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
